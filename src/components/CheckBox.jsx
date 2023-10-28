@@ -10,7 +10,7 @@ export default function CheckBox({ todo, onChange}) {
     border-2 
     mr-4 
     cursor-pointer
-    ${todo.isCompleted ? 'bg-green-400': ''}`}
+    ${todo.isCompleted ? 'bg-green-400 border-green-500': ''}`}
     onClick={() => onChange(todo.id)}
     >
       {todo.isCompleted ? <AiOutlineCheck /> : null}
