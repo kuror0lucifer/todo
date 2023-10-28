@@ -4,15 +4,15 @@ import {BiTrashAlt} from 'react-icons/bi'
 
 
 
-export default function ListItems({todo}) {
+export default function ListItems({todo, onChange}) {
   return (
     <ul>
         {todo.map( e => {
             return (
                 <div className='flex justify-between items-center mb-6 first-of-type:mt-8'>
-                    <CheckBox />
+                    <CheckBox onChange={onChange} todo={e}/>
                     <div className='w-80 h-6 border-b mr-3'>
-                    <li key={e.id}>{e.title}</li>
+                    <li key={e.id} className={`${e.isCompleted ? 'line-through' : ''}`}>{e.title}</li>
                     </div>
                     <BiTrashAlt className='w-5 h-5 cursor-pointer hover:text-red-500'/>
                 </div>

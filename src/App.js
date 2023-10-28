@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Block from "./components/Block";
 
 const todo = [
@@ -20,5 +20,21 @@ const todo = [
 ];
 
 export default function App() {
-  return <Block todo={todo} />;
+  const [todos, setTodos] = useState(todo);
+
+  const onChange = (id) => {
+    setTodos((prevTodos) => {
+      return prevTodos.map((todoItem) => {
+        if (todoItem.id === id) {
+          return {
+            ...todoItem,
+            isCompleted: !todoItem.isCompleted,
+          };
+        }
+        return todoItem;
+      });
+    });
+  };
+
+  return <Block todo={todos} onChange={onChange} />;
 }
