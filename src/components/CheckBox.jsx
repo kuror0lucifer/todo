@@ -1,11 +1,7 @@
 import React from 'react'
-import {BsCheck2} from 'react-icons/bs'
 
-export default function CheckBox({isCompleted}) {
-
+export default function CheckBox() {
   return (
-    <div className={`rounded-xl border-2 border-green-300 w-6 h-6 cursor-pointer `} >
-      {isCompleted && <BsCheck2 className='' />}
-    </div>
+    <div className='w-5 h-5 rounded-full border-gray-200 border-2 mr-4 cursor-pointer'></div>
   )
 }
