@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Block from "./components/Block";
+import CreateField from "./components/СreateField";
 
 const todo = [
   {
@@ -53,6 +54,9 @@ export default function App() {
   };
 
   return (
-    <Block todo={todos} onChange={onChange} onDel={onDel} addTodo={addTodo} />
+    <>
+      <Block todo={todos} onChange={onChange} onDel={onDel} addTodo={addTodo} />
+      <CreateField addTodo={addTodo} />
+    </>
   );
 }
