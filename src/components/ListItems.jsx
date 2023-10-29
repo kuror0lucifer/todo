@@ -4,7 +4,7 @@ import {BiTrashAlt} from 'react-icons/bi'
 
 
 
-export default function ListItems({todo, onChange}) {
+export default function ListItems({todo, onChange, onDel}) {
   return (
     <ul>
         {todo.map( e => {
@@ -14,7 +14,7 @@ export default function ListItems({todo, onChange}) {
                     <div className='w-80 h-6 border-b mr-3'>
                     <li key={e.id} className={`${e.isCompleted ? 'line-through' : ''}`}>{e.title}</li>
                     </div>
-                    <BiTrashAlt className='w-5 h-5 cursor-pointer hover:text-red-500'/>
+                    <BiTrashAlt onClick={() => onDel(e.id)} className='w-5 h-5 cursor-pointer hover:text-red-500'/>
                 </div>
             )
             })

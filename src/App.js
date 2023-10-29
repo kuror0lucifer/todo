@@ -22,6 +22,10 @@ const todo = [
 export default function App() {
   const [todos, setTodos] = useState(todo);
 
+  const onDel = (id) => {
+    setTodos([...todos.filter((t) => t.id !== id)]);
+  };
+
   const onChange = (id) => {
     setTodos((prevTodos) => {
       return prevTodos.map((todoItem) => {
@@ -34,7 +38,8 @@ export default function App() {
         return todoItem;
       });
     });
+    console.log(todo.id);
   };
 
-  return <Block todo={todos} onChange={onChange} />;
+  return <Block todo={todos} onChange={onChange} onDel={onDel} />;
 }
