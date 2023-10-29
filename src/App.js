@@ -27,17 +27,6 @@ export default function App() {
     setTodos([...todos.filter((t) => t.id !== id)]);
   };
 
-  const addTodo = (title) => {
-    setTodos([
-      {
-        id: new Date(),
-        title,
-        isCompleted: false,
-      },
-      ...todos,
-    ]);
-  };
-
   const onChange = (id) => {
     setTodos((prevTodos) => {
       return prevTodos.map((todoItem) => {
@@ -55,8 +44,8 @@ export default function App() {
 
   return (
     <>
-      <Block todo={todos} onChange={onChange} onDel={onDel} addTodo={addTodo} />
-      <CreateField addTodo={addTodo} />
+      <Block todo={todos} onChange={onChange} onDel={onDel} />
+      <CreateField setTodos={setTodos} />
     </>
   );
 }
